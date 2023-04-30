@@ -6,10 +6,10 @@ const stepEl = document.querySelector('input[name="step"]');
 const amountEl = document.querySelector('input[name="amount"]');
 formEl.addEventListener('submit', onFormSubmit);
 
-let position = 0;
 let amount;
 let stepDelay = 0;
 let formSubmitTime;
+let position = 0;
 
 function onFormSubmit(event) {
   event.preventDefault();
