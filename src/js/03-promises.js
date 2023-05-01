@@ -15,9 +15,14 @@ function onFormSubmit(event) {
   event.preventDefault();
   amount = Number(amountEl.value);
   stepDelay = Number(stepEl.value);
-  createPromise(position, Number(delayEl.value));
-  formSubmitTime = Date.now();
-  event.currentTarget.reset();
+  if (amount <= 0 || stepDelay <= 0 || Number(delayEl.value) < 0) {
+    Notify.failure(`❌ All values must be positive`);
+    return;
+  } else {
+    createPromise(position, Number(delayEl.value));
+    formSubmitTime = Date.now();
+    event.currentTarget.reset();
+  }
 }
 
 function createPromise(position, delay) {
